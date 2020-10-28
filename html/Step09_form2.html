@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step09_form2.html</title>
+</head>
+<body>
+    <h1>회원가입 폼 입니다.</h1>
+    <form action="signuo.jsp"></form>
+    <label for="email">이메일</label>
+    <input type="text" name="email" id="enamil"><br>
+    <fieldset>
+        <legend>성별 정보 선택</legend> <!--추가 정보를 줄 수 있는 태그(시각장애인을 위한)-->
+        <label>
+            <input type="radio" name="gender" value="man" checked/> 남자
+        </label>
+        <label>
+            <input type="radio" name="gender" value="woman"> 여자
+        </label>
+        <label>
+            <input type="radio" name="gender2" value="no"> 모름  <!--name뒤에2를 붙이면 다른 그룹에 속해서 중복선택 가능-->
+        </label>
+    </fieldset>
+    <fieldset>
+        <legend>취미 정보 선택</legend>
+        <label>
+            <input type="checkbox" name="hobby" value="piano"> 피아노
+        </label>
+        <label>
+            <input type="checkbox" name="hobby" value="carom"> 당구
+        </label>
+        </label>
+            <input type="checkbox" name="hobby" value="beer"> 맥주
+        <label>
+        </label>
+             <input type="checkbox" name="hobby" value="etc"> 기타
+        <label>
+    </fieldset>
+    <br>
+    <label for="job">직업선택</label>
+    <select name="job" id="job">    <!--카테고리 내에서 선택정보 출력-->
+        <option value="">선택</option> 
+        <option value="teacher">선생님</option>
+        <option value="doctor">의사</option>
+        <option value="developer">개발자</option>
+        <option value="etc">기타</option>
+    </select>
+    <br>
+    <label for="lunch">점심 메뉴 선택</label>
+    <select name="lunch" id="lunch" multiple>   <!--multiple은 여러개 선택 가능-->
+        <option value="">선택</option>
+        <option value="m1">짜장면</option>
+        <option value="m2">짬뽕</option>
+        <option value="m3">군만두</option>
+        <option value="m4">탕수육</option>
+    </select>
+    <br>
+    <button type="submit">가입</button>
+    <button type="reset">취소</button>
+</body> 
+</html>
