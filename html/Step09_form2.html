@@ -14,6 +14,7 @@
         <legend>성별 정보 선택</legend> <!--추가 정보를 줄 수 있는 태그(시각장애인을 위한)-->
         <label>
             <input type="radio" name="gender" value="man" checked/> 남자
+            <!--전송 될 때 gender라는 이름으로 man의 값을 서버에 전송-->
         </label>
         <label>
             <input type="radio" name="gender" value="woman"> 여자
@@ -42,7 +43,8 @@
     <select name="job" id="job">    <!--카테고리 내에서 선택정보 출력-->
         <option value="">선택</option> 
         <option value="teacher">선생님</option>
-        <option value="doctor">의사</option>
+        <option value="doctor" selected>의사</option>
+        <!--selected를 걸어두면 기본으로 자동선택 돼있음-->
         <option value="developer">개발자</option>
         <option value="etc">기타</option>
     </select>
@@ -59,6 +61,7 @@
     <label for="coffee">커피 선택</label>
     <select name="coffee" id="coffee">
         <optgroup label="에스프레소">
+            <!--optgroup은 특정그룹에 제목을 붙여줌, 전송될 때 영향은 없음-->
             <option>아메리카노</option>
             <option>카페라떼</option>
             <option>카페모카</option>
@@ -72,6 +75,7 @@
         <br>
         <label for="file">첨부 파일</label>
         <input type="file" id="file" name="file">
+        <!--input type="file"은 전송할 웹브라우저에 파일을 선택(첨부)하게 해줌-->
         <br>
 
         <label for="comment">하고 싶은 말</label><br/>

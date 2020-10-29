@@ -31,7 +31,18 @@
             </li>
             <li>
                 <!--웹에서의 절대 경로 이동-->
-                <a href="http://daum.net">daum으로 가기</a>
+                <a href="http://daum.net"><img src="images/hole.png" alt=""></a>
+                <!--src에는 텍스트대신 이미지도 삽입가능, alt는 생략가능-->
+            </li>
+            <li>
+                <a href="http://14.63.164.99">
+                    <!--인라인 요소는 원래 블록 요소를 자식 요소로 가질 수 없다.
+                    단, <a>요소(링크)만 예외적으로 div같은 블록요소를 자식요소로 가질 수 있다-->
+                    <div>
+                        <h3>이동하기</h3>
+                        <img src="images/kim1.png"/>
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
