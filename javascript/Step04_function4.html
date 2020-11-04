@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step04_function4.html</title>
+</head>
+<body>
+    <script>
+        // - 함수를 호출하면 반드시 어떤 값을 해당위치로 return 해 준다.
+        
+        // undefined 를 리턴해주는 함수
+        function a(){
+            console.log("a() 함수 호출됨")
+        }
+
+        // number type 을 리턴해주는 함수
+        function b(){
+            console.log("b() 함수 호출됨")
+            return 10; // number type
+        }
+
+        //string type 을 리턴해주는 함수
+        function c(){
+            console.log("c() 함수 호출됨")
+            return "kim"; // string type
+        }
+
+        // object type 을 리턴해주는 함수
+        function d(){
+            console.log("d() 함수 호출됨")
+            let obj={num:1, name:"김구라", addr:"노량진"};
+            return obj;
+        }
+        //'d' = 함수타입, 'd()' = 오브젝트타입, 'd().num' = 넘버타입 ★
+        // 그러면 console.log(); 에서는 'console' = 오브젝트타입, 'console.log' = 함수타입★
+
+
+        // array 를 리턴해주는 함수
+        function e(){
+            console.log("e() 함수 호출됨")
+            let arr=["김구라", "해골", "원숭이"]
+            return arr; // e()[0~2]; ㅡ> string type.
+        }
+
+        // 회원 목록을 array 로 리턴하는 함수
+        function getDate(){
+            let date=[
+                {num:1, name:"김구라", isMan:true},
+                {num:2, name:"해골", isMan:false},
+                {num:3, name:"원숭이", isMan:true}
+            ];
+            return date;
+        }
+    </script>
+</body>
+</html>
