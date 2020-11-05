@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>test</title>
 </head>
 <body>
-    <button id="countBtn" onclick="f1();">0</button>
+    <input type="text" id="num1">
+    <span>+</span>
+    <input type="text" id="num2">
+    <button  onclick="plus();">=</button>
+    <span id="result"></span>
+
     <script>
-        var a = 0;
-        function f1 () {
-            document.querySelector("#countBtn").innerText = a=a+1;
+        function plus(){
+            var a = document.querySelector("#num1").value;
+            var b = document.querySelector("#num2").value;
+            var result = parseFloat(a) + parseFloat(b)
+            document.querySelector("#result").innerText = result;
         }
     </script>
 </body>

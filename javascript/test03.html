@@ -6,8 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    <p id="one" onclick="document.querySelector('#one').innerText='안녕히 가세요.';">
-        안녕하세요</p>
-        
+        <p>산술예제</p>    
+        <input type="text" id="num1">
+        <span>+</span>
+        <input type="text" id="num2">
+        <button onclick="plus();">=</button>
+        <strong id="result"></strong>
+    <script>
+        function plus(){
+            var a=document.querySelector("#num1").value;
+            var b=document.querySelector("#num2").value;
+            var result=parseFloat (a)+parseFloat (b);
+            document.querySelector("#result").innerText = result;
+        }
+    </script>
 </body>
 </html>
