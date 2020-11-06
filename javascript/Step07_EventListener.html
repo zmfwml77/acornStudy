@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step07_EventListener.html</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>EventListener 테스트</h1>
+    <button onclick="clicked();">눌러보셈</button>
+    <button id="myBtn">눌러보셈2</button>
+    <div class="box" id="myDiv" onclick="cssClick();"></div>
+    <div class="box" id="myDiv2" onclick="cssClick2();"></div>
+    <script>
+        // 지역변수
+        function clicked(){
+            alert("버튼을 눌렀네요?");
+        }
+        //"click"event가 실행되면 function(){}이 실행됨                                             /*function type, call back function*/
+        document.querySelector("#myBtn").addEventListener("click" /*=string type, "event name"*/, function(){
+            alert("버튼을 눌렀네요?");
+        });
+        //call back ㅡ> 내가 원하는 시점(어떤 event가 실행될 때)에 함수 실행
+
+
+        /*
+        //지역변수
+        let myName="김구라";
+        
+
+        //지역변수
+        (function(){
+            let yourName="해골";
+        })();
+
+        //전역변수.
+        function test(){
+            let ourName="원숭이";
+        }
+
+        /*전역변수는 누군가와같이 프로젝트를 작업하고 합쳤을 때 충돌이
+        나므로 웬만하면 쓰지 않는다. 그러므로 웬만하면 지역변수를 사용*/
+
+        function cssClick(){
+            document.querySelector("#myDiv").innerText="clicked!";
+        }
+
+        function cssClick2(){
+            document.querySelector("#myDiv2").addEventListener("click",function cssClick(){alert("눌렀네")} )
+        }
+    </script>
+</body>
+</html>
