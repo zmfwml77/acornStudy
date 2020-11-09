@@ -46,22 +46,24 @@
         */
         var a = document.querySelectorAll("div")
 
-        // for(i=0; i<a.length; i++){
-        //     /*document.querySelectorAll("div")*/ a[i].addEventListener("click", function(){
-        //     this.innerText="clicked!";
-        //     });
-        // }                <ㅡ 전역변수로 만들면
+        
+
+        for(i=0; i<a.length; i++){
+            /*document.querySelectorAll("div")*/ a[i].addEventListener("click", function(){
+            this.innerText="clicked!";
+            });
+        }               // <ㅡ 전역변수로 만들면
 
 
-        //지역변수로 만들면
-        (function(){
+        // //지역변수로 만들면
+        // (function(){
             
-            for(i=0; i<a.length; i++){
-                /*document.querySelectorAll("div")*/ a[i].addEventListener("click", function(){
-                this.innerText="clicked!";
-                });
-            }
-        })
+        //     for(i=0; i<a.length; i++){ 
+        //         /*document.querySelectorAll("div")*/a[i].addEventListener("click", function(){
+        //         this.innerText="clicked!";
+        //         });
+        //     }
+        // })
         
     </script>
 </body>

@@ -5,20 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-        <p>산술예제</p>    
-        <input type="text" id="num1">
-        <span>+</span>
-        <input type="text" id="num2">
-        <button onclick="plus();">=</button>
-        <strong id="result"></strong>
-    <script>
-        function plus(){
-            var a=document.querySelector("#num1").value;
-            var b=document.querySelector("#num2").value;
-            var result=parseFloat (a)+parseFloat (b);
-            document.querySelector("#result").innerText = result;
+<script>
+    var Links = {
+        setColor:function LinksSetColor(color){
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+        while (i < alist.length){
+            alist[i].style.color = 'color';
+            i = i+1;
+            }   
+        }  
+    }
+    
+    var Body = {
+        setColor: function(color){
+            document.querySelector('body').style.color=color;
+        },
+        BodysetbackgroundColor:function(color){
+        document.querySelector('body').style.backgoundColor=color;
         }
-    </script>
+    }
+
+    function nightDayHandler(self){ 
+        var target = document.querySelector('body');
+        if(self.value == 'night'){
+            Body.setbackgroundColor='black';
+            Body.setColor='white';
+            self.value='day';
+        
+          
+          Links.SetColor('powderblue');
+        } else {
+            Body.setbackgroundColor='white';
+            Body.setColor='black';
+            self.value='night';
+
+            Links.SetColor('blue');
+        } 
+    }
+</script>
+<body>
+    <h1><a href="index.html">WEB</a></h1>
+    <input type="button" id="night_day" value="night"
+    onclick="
+        nightDayHandler(this);
+    ">
+    
+    <ol>
+        <li><a href="1.html">HTML</a></li>
+        <li><a href="2.html">CSS</a></li>
+        <li><a href="3.html">javascript</a></li>
+    </ol>
 </body>
 </html>

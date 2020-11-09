@@ -36,7 +36,8 @@
             }
         }
 
-        /*  names의 저장된 이름들을 화면에 출력해보세요
+        /*  
+            names의 저장된 이름들을 화면에 출력해보세요
             [hint]
             let p1=document.createElement("p");
             p1.innerText="p1요소 입니다.";
@@ -57,14 +58,12 @@
 
 
         function printToList2(){
-                
                 document.querySelector("#nameList").innerText="";
                 names.forEach(function(item, index){
-                let li=document.createElement("li")
-                li.innerText=item;
-                document.querySelector("#nameList").append(li);
-                });
-
+                    let li=document.createElement("li")
+                    li.innerText=item;
+                    document.querySelector("#nameList").append(li);
+                    });
         }
     </script>
 </body>

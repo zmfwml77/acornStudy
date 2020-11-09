@@ -5,44 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .box{
-            width: 100px;
-            height: 100px;
-            background-color: yellow;
-            border: 1px solid red;
-            float: left;
+        canvas{
+            border: 3px dashed red;  
         }
     </style>
 </head>
+<style>
+</style>
 <body>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
-    <div class="box"></div>
+    <canvas id="myCanvas" width="300" height="300"+></canvas>
+    </br>
+    <input type="color" id="inputColor">
+    <select id="lineWidth">
+        <option>5</option>
+        <option selected>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>25</option>
+    </select>
+        <button id="backgoundColor">배경색</button>
+    <label>지우개
+        <input type="checkbox" id="erase">
+    </label>
     <script>
-        var a=document.querySelectorAll("div");
+        let canvas = document.querySelector("#myCanvas");
+        let context = canvas.getContext("2d");
+        let currentWidth=5;
+        
+        let color='black';
 
-        for(i=0; i<a; i++){
-            Document.querySelectorAll("div")[i].addEventListener("click", function(){
-                
-            })
-        }
+        let isMouseDown=false;
+        canvas.addEventListener("mousedown", function(event){
+            isMouseDown = true;
+            let x = event.offsetX;
+            let y = event.offsetY;
+            context.beginPath();
+            context.moveTo(x, y);
+            context.strokeStyle=color;
+            context.lineWidth=currentWidth;
+        })        
     </script>
 </body>
 </html>
