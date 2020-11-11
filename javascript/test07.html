@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>논리 연산자 테스트중</h1>
+    <input type="text" id="name" placeholder="아이디 입력...">
+    <input type="password" id="pwd" placeholder="비밀번호 입력...">
+    <button id="check">인증하기</button>
+    <p id="result"></p>
+    <script>
+        document.querySelector("#check").addEventListener("click", function(){
+            let name = document.querySelector("#name").value;
+            let pwd =  document.querySelector("#pwd").value;
+            let text = document.querySelector("#result");
+            if(name == "kim" && pwd == "1234"){
+                text.innerText = "인증되었습니다";
+            } else {
+                text.innerText = "다시 시도하십시오";
+            }
+
+            if(name == ""){
+                alert("아이디를 입력해주세요");
+                text.innerText = "";
+            }
+            if(pwd == ""){
+                alert("비밀번호를 입력해주세요");
+                text.innerText = "";
+            }
+        });
+
+    </script>
+</body>
+</html>

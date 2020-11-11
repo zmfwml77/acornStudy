@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="height">
+    <input type="text" id="weight">
+    <button id="checkBtn">확인하기</button>
+    <p id="result"></p>
+    <script>
+        document.querySelector("#checkBtn").addEventListener("click", function(){
+            let height = document.querySelector("#height").value;
+            let weight = document.querySelector("#weight").value;
+            if(height >= 150 && weight < 100){
+                document.querySelector("#result").innerText = "탑승하십시오";
+            } else {
+                document.querySelector("#result")
+                .innerText = `키 ${height}cm, 몸무게 ${weight}이므로 탑승할 수 없습니다.`;
+            }
+        });
+    </script>
+</body>
+</html>

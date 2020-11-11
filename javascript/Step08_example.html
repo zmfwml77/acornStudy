@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Step08_example.html</title>
+    <style>
+        #result{
+            color: blue;
+        }
+    </style>
 </head>
 <body>
     <h1>논리 연산자 테스트 예제</h1>
@@ -23,9 +28,16 @@
             let height = document.querySelector("#height").value;
             let weight = document.querySelector("#weight").value;
                 if(150 <= height && 100 > weight){
-                document.querySelector("#result").innerText = "놀이기구를 탈 수 있습니다.";
+                    document.querySelector("#result").innerText = "놀이기구를 탈 수 있습니다.";
                 } else {
-                document.querySelector("#result").innerText = "놀이기구를 탈 수 없습니다.";
+                    document.querySelector("#result").innerText = "놀이기구를 탈 수 없습니다.";
+                    document.querySelector("#result").style.color ="red";
+                }
+
+                if(height < 150 || weight >= 100){
+                    document.querySelector("#result").innerText = "놀이기구를 탈 수 없습니다"
+                } else {
+                    document.querySelector("#result").innerText = "놀이기구를 탈 수 있습니다."
                 }
             });
     </script>

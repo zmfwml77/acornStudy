@@ -4,46 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        canvas{
-            border: 3px dashed red;  
-        }
-    </style>
 </head>
-<style>
-</style>
 <body>
-    <canvas id="myCanvas" width="300" height="300"+></canvas>
-    </br>
-    <input type="color" id="inputColor">
-    <select id="lineWidth">
-        <option>5</option>
-        <option selected>10</option>
-        <option>15</option>
-        <option>20</option>
-        <option>25</option>
-    </select>
-        <button id="backgoundColor">배경색</button>
-    <label>지우개
-        <input type="checkbox" id="erase">
+    <h1>회원가입 폼입니다.</h1>
+    <label for="login.jsp">이메일
+        <input type="email" id="email" name="email">
     </label>
-    <script>
-        let canvas = document.querySelector("#myCanvas");
-        let context = canvas.getContext("2d");
-        let currentWidth=5;
-        
-        let color='black';
-
-        let isMouseDown=false;
-        canvas.addEventListener("mousedown", function(event){
-            isMouseDown = true;
-            let x = event.offsetX;
-            let y = event.offsetY;
-            context.beginPath();
-            context.moveTo(x, y);
-            context.strokeStyle=color;
-            context.lineWidth=currentWidth;
-        })        
-    </script>
-</body>
-</html>
+    <fieldset>
+        <legend>성별 정보 선택</legend>
+        <input type="radio" id="gender" name="man">남자
+        <input type="radio" id="gender" name="woman">여자
+    </fieldset>
+    <fieldset>
+        <legend>취미 정보 선택</legend>
+        <input type="checkbox" id="hobby" name="piano">피아노
+        <input type="checkbox" id="hobby" name="carom">당구
+        <input type="checkbox" id="hobby" name="beer">맥주
+        <input type="checkbox" id="hobby" name="">기타
+    </fieldset>
+    <br>
+    <label for="hob">직업선택</label>
+    <select name="job" id="job">
+        <option>선택</option>
+        <option value="job">선생님</option>
+        <option value="job">의사</option>
+        <option value="job">개발자</option>
+        <option value="job">기타</option>
+    </select>
+    <br>
+    <label for="lunch">점심 메뉴 선택</label>
+    <select name="lunch" id="lunch">
+        <option aria-multiline="lunch">짜장면</option>
+        <option aria-multiline="lunch">탕수육</option>
+        <option aria-multiline="lunch">짬뽕</option>
+        <option aria-multiline="lunch">군만두</option>
+    </select>
+    <br>
+    <label for="coffee">커피 선택</label>
+    <select name="coffee" id="coffee">
+        <optgroup label="에소프레소">
+            <option value="coffee">아메리카노</option>
+            <option value="coffee">바닐라라떼</option>
+            <option value="coffee">카페라떼</option>
+        </optgroup>
+        <optgroup label="프라푸치노">
+            <option value="">자바칩 프라푸치노</option>
+            <option value="">카라멜 프라푸치노</option>
+            <option value="">민트칩 프라푸치노</option>
+        </optgroup>
+    </select>
+    <br>
+    <label for="file">첨부 파일</label>
+    <input type="file">
+    <br>
+    <label for="comment">하고싶은 말</label><br>
+    <textarea name="comment" id="comment" cols="30" rows="10"></textarea><br>
+    <button type="submit">가입</button>
+    <button type="reset">취소</button>
+    </html>

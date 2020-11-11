@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<input type="text" id="num1" placeholder="숫자 입력">
+<span>+</span>
+<input type="text" id="num2" placeholder="숫자 입력">
+<button id="plus">=</button>
+<p id="result"></p>
+<body>
+    <script>
+        document.querySelector("#plus").addEventListener("click", function (){
+            let a = document.querySelector("#num1").value;
+            let b = document.querySelector("#num2").value;
+            let result = parseFloat(a) + parseFloat(b);
+            document.querySelector("#result").innerText = result;
+        });
+    </script>
+</body>
+</html>
