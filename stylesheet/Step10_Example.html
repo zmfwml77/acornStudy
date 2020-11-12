@@ -36,6 +36,15 @@
 			document.querySelector("#one").style.display="none";
 		}
 	});
+
+	documnet.querySelector("#toggleBtn").addEventListener("click", function(){
+		var current = document.querySelector("#one").style.display;
+		if(current == "none"){
+			document.querySelector("#one").style.display = "inline";
+		} else {
+			document.querySelector("#one").style.display = "none";
+		}
+	})
 </script>	
 </body>
 </html>

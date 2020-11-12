@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>exam5.html</title>
+    <title>exam4.html</title>
 </head>
 <body>
-    <div id="wrapper">
-
-    </div>
+    <input type="text" id="inputName"/>
+    <button id="sendBtn">전송</button>
+    <p id="console"></p>
     <script>
-        let a = document.createElement("a");
-        a.setAttribute("href", "hello.html");
-        a.innerText = "이동하기";
-        document.querySelector("#wrapper").append(a);
-
+        document.querySelector("#sendBtn").addEventListener("click", function(){
+            let a = document.querySelector("#inputName").value;
+            document.querySelector("#console").innerText = a;
+        })
     </script>
 </body>
 </html>

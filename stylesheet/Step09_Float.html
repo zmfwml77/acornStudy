@@ -16,7 +16,9 @@
 			border: 1px solid red;
 		}
 		#one{
-			float: left;
+			float: left; /*★div는 원래 블록요소인데 float을 사용함으로 인해 span(inLine요소)과 비슷한 기능★
+							밑에는 div요소 밑에 p요소가 있는데도 p의 컨텐츠는 덮어지지않고 보존이 되면서 옆(left or right)으로 옴.
+							float는 다음번에 올 요소의 영향을 미침.*/
 		}
 		#two{
 			float: right;

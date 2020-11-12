@@ -7,13 +7,15 @@
 		#one{
 			/* 문서 객체는 만들어 졌지만 공간을 차지하지 않고
 			보이지 않게 하기  */
-			display: none;
+			display: none; /*보이지 않게(=배치하지 않게) => 자리도 차지하지 않음
+							'none'의 반댓말은 여러가지가 될 수 있다 => block, inline-block 등등*/
 		}
 	</style>
 </head>
 <body>
 <h1>display 속성 테스트</h1>
 <button id="showBtn">눌러보셈</button>
+<!--  ★style="display: block;" 를 내부 css(internal)인 p요소에 입력하면 위의 display: none; 을 무시하고 internal이 적용된다. => internal이 더 셈.★-->
 <p id="one">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus cupiditate ea earum sequi aspernatur reprehenderit at quia, consequuntur consequatur iste quos necessitatibus eveniet ipsam, vero, eaque iusto maiores, ipsum explicabo.</p>	
 <img src="images/kim1.png" />
 <script>
