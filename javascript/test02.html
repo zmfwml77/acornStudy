@@ -3,22 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>Document</title>
 </head>
 <body>
-    <input type="text" id="num1">
-    <span>+</span>
-    <input type="text" id="num2">
-    <button  onclick="plus();">=</button>
-    <span id="result"></span>
-
     <script>
-        function plus(){
-            var a = document.querySelector("#num1").value;
-            var b = document.querySelector("#num2").value;
-            var result = parseFloat(a) + parseFloat(b)
-            document.querySelector("#result").innerText = result;
+        function sum(a, b){
+            document.write(a + b);
         }
+        sum(2,3);
     </script>
 </body>
 </html>

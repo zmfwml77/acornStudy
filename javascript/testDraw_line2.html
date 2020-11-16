@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" height="500" width="500"></canvas> <br>
+
+    <input type="color" id="inputColor">
+
+    <select id="lineWidth">
+        <option>1</option>
+        <option>10</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+    </select>
+
+    <button id="bg">배경칠하기</button>
+
+    <label>
+    지우개 <input type="checkbox" id="erase">
+    </label>
+
+    <script>
+        let canvas = document.querySelector("#myCanvas");
+        let context = canvas.getContext("2d");
+        let currentWidth = 5;
+        context.lineCap = "round";
+        context.lineJoin = "round";
+        let color = "black";
+        context.strokeStyle = color;
+
+        let isMouseDown = false;
+        let isErase = false;
+
+        canvas.addEventListener("mousedown", function(event){
+            isMouseDown = true;
+            let x = event.offsetX;
+            let y = event.offsetY;
+            context.beginPath();
+            context.moveTo(x,y);
+            context.strokeStyle = color;
+            context.lineWidth = currentWidth;
+        });
+
+        canvas.addEventListener("mousemove", function(event){
+            if(isMouseDown == true){
+                let x = event.offsetX;
+                let y = event.offsetY;
+                if(false){
+                    context.clearRect(x,y,10,10);
+                } else {
+                    context.lineTo(x,y);
+                    context.stroke();
+                }
+            }
+        });
+
+        canvas.addEventListener("mouseup", function(){
+            isMouseDown = false;
+        });
+
+        document.querySelector("#inputColor").addEventListener("change", function(){
+            this.value = color;
+        });
+
+        document.querySelector("#lineWidth").addEventListener("change", function(){
+            currentWidth = this.value;
+        });
+
+        document.querySelector("#bg").addEventListener("click", function(){
+            context.fillStyle = color;
+            context.fillRect(0,0,500,500);
+        });
+
+        document.querySelector("#erase").addEventListener("change", function(){
+            isErase = this.checked;
+                if(isErase){
+                    document.querySelector("#myCanvas").style.cursor = "not-allowed";
+                } else {
+                    document.querySelector("#myCanvas").style.cursor = "crosshair";
+                }
+        });
+    </script>
+</body>
+</html>

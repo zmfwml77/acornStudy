@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step03_form2.html</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <style>
+        #showPwd{
+            margin: -40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>폼 요소의 도움말</h1>
+        <form action="">
+            <div class="form-group">
+                <label>아이디</label>
+                <input type="text" class="form-control">
+                <span class="form-text text-info">영문자로 시작하고 숫자를 조합해 주세요.</span>
+            </div>
+            <button type="submit" class="btn btn-outline-primary">가입</button>
+        </form>
+
+        <h1>폼 검증 상태 표시</h1>
+        <form action="" class="needs-validation">
+            <div class="form-group">
+                <label>이메일</label>
+                <input type="text" class="form-control is-valid"> <!-- 'is-invalid'으로 입력시는? 해보셈 -->
+                <div class="valid-feedback">
+                    잘 입력했습니다.
+                </div>
+                <div class="invalid-feedback">
+                    이메일 형식에 맞게 입력해주세요.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-secondary">가입</button>
+        </form>
+
+        <h1>폼 검증 상태표시(실제 동작)</h1>
+        <form action="" class="needs-validation"></form>
+            <div class="form-group">
+                <label for="nick">별명 입력</label>
+                <input type="text" id="nick" class="form-control">
+                <div class="invalid-feedback">
+                    2글자 이상 입력하세요
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">저장</button>
+
+        <form>
+            <div>
+                <label for="pwd">비밀번호
+                    <input type="password" id="pwd" placeholder="비밀번호 입력...">
+                </label>
+                <button id="showPwd">🤩</button>
+                <p id="result"></p>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.querySelector("#nick").addEventListener("input", function(){
+            //입력한 별명 읽어오기
+            let inputNick=this.value;
+            //일단 클래스를 먼저 제거하고
+            this.classList.remove("is-invalid");
+            this.classList.remove("is-valid");
+            //만일 2글자 미만으로 입력했다면
+            if (inputNick.length < 2){
+                this.classList.add("is-invalid");
+            } else { //2글자 이상 입력했다면
+                this.classList.add("is-valid");
+            }
+        });
+    </script>
+
+    <!-- 연습장 -->
+
+    <script>
+        
+        document.querySelector("#showPwd").addEventListener("mouseover", function(){
+           document.querySelector("#pwd").setAttribute("type", "text");
+        });
+
+        document.querySelector("#showPwd").addEventListener("mouseout", function(){
+           document.querySelector("#pwd").setAttribute("type", "password");
+        });
+
+
+    </script>
+</body>
+</html>

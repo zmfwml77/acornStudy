@@ -16,9 +16,9 @@
     <br/>
     <input type="color" id="inputColor"/>
     <select id="lineWidth">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
         <option>4</option>
         <option selected>5</option>
         <option>6</option>
@@ -27,65 +27,44 @@
         <option>9</option>
         <option>10</option>
     </select>
+
     <button id="fillBackBtn">배경색</button>
     <label>
         지우개 기능
         <input type="checkbox" id="eraseCheck"/>
     </label>
+    
     <script>
-        //canvas  요소의 참조값 얻어오기 
         let canvas=document.querySelector("#myCanvas");
-        //canvas 에 렌더링 할수 있는 도구(context) 의 참조값 얻어오기 
         let context=canvas.getContext("2d");
-        //페이지 로딩 시점에 선의 굵기 초기값 지정하기 
         let currentWidth=5;
-        //선의 시작과 끝을 둥글게
         context.lineCap="round";
-        //선의 교차점을 둥글게
         context.lineJoin="round";
-        //선의 색상을 저장할 변수 만들고 "black" 으로 초기화 
         let color="black";
-        //선의 색상 지정하기 
         context.strokeStyle=color;
 
-        // context.beginPath();
-        // context.moveTo(100, 100);
-        // context.lineTo(200, 200);
-        // context.lineTo(200, 100);
-        // context.stroke();
-        // context.closePath();
 
-        //마우스가 down 상태 인지 여부
         let isMouseDown=false;
-        //그림을 그리는 상태인지 지우는 상태인지 여부 
-        // false => 그림을 그리는 상태, true => 지우는 상태  
         let isErase=false; 
 
         canvas.addEventListener("mousedown", function(event){
-            //마우스 down 상태로 바꿔준다.
             isMouseDown=true;
-            //이벤트가 일어난곳의 좌표
             let x=event.offsetX;
             let y=event.offsetY;
-            //mousedown 이벤트가 일어난 지점에서 부터 그릴 준비를 한다. 
             context.beginPath();
             context.moveTo(x, y);
-            //변수에 저장된 값으로 색상 지정
             context.strokeStyle=color;
-            //변수에 저장된 값으로 선의 굵기 지정
             context.lineWidth=currentWidth;
         });
-        //canvas 에 mousemove 이벤트 처리 
+
         canvas.addEventListener("mousemove", function(event){
             console.log(event);
-            //만일 마우스 down 상태 일때
             if(isMouseDown == true){
-                //이벤트가 일어난곳의 좌표
                 let x=event.offsetX;
                 let y=event.offsetY;
-                if(isErase == true){ //만일 지우는 작업 상태이면 
+                if(isErase){
                     context.clearRect(x, y, 10, 10);
-                }else{//지우는 작업 상태가 아니라면 (그리는 상태라면)
+                }else{
                     context.lineTo(x, y);
                     context.stroke();
                 }
@@ -93,35 +72,26 @@
         });
 
         canvas.addEventListener("mouseup", function(){
-            //더이상 작업(그림 or 지우기) 않도록 상태값을 바꿔준다. 
             isMouseDown=false;
         });
 
         document.querySelector("#inputColor")
             .addEventListener("change", function(){
-                // color 변수에 현재 value 값을 대입한다. 
                 color=this.value;
             });
         
-        // select 요소에 change 이벤트가 발생했을때 실행할 함수 등록
         document.querySelector("#lineWidth")
             .addEventListener("change", function(){
-                //change 이벤트가 일어난 요소의 value 값을 변수에 대입
                 currentWidth=this.value;
             });
-        //배경색상 버튼을 눌렀을때 실행할 함수 등록 
         document.querySelector("#fillBackBtn")
             .addEventListener("click", function(){
-                //현재 선택된 색상을 체울 색으로 지정하고 
                 context.fillStyle=color;
-                // fillRect(x, y, width, height) 로 지정된 사각형 영역을 체운다.
                 context.fillRect(0, 0, 500, 500);
             });
 
-        //체크박스의 체크 상태가 바뀌었을때 호출되는 함수 등록
         document.querySelector("#eraseCheck")
             .addEventListener("change", function(){
-                //체크여부를 (true or false) 변수에 담는다.
                 isErase=this.checked;
                 if(isErase){
                     document.querySelector("#myCanvas").style.cursor="not-allowed";
